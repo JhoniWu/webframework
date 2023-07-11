@@ -1,20 +1,18 @@
 package com.minis.beans;
 
-import com.minis.beans.BeanDefinition;
-import com.minis.beans.BeanFactory;
 import com.minis.core.Resource;
 import org.dom4j.Element;
 
 
 /**
  * @program: MicroSpring
- * @description:
+ * @description: 读取xml文件获取bean实例
  * @author: Max Wu
  * @create: 2023-07-10 16:25
  **/
 public class XmlBeanDefinitionReader {
-	BeanFactory beanFactory;
-	public XmlBeanDefinitionReader(BeanFactory beanFactory){
+	SimpleBeanFactory beanFactory;
+	public XmlBeanDefinitionReader(SimpleBeanFactory beanFactory){
 		this.beanFactory = beanFactory;
 	}
 	public void loadBeanDefinitions(Resource resource){

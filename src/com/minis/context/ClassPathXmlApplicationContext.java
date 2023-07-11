@@ -1,6 +1,7 @@
 package com.minis.context;
 
 import com.minis.beans.*;
+import com.minis.core.ApplicationEventPublisher;
 import com.minis.core.ClassPathXmlResource;
 import com.minis.core.Resource;
 
@@ -10,7 +11,7 @@ import com.minis.core.Resource;
  * @author: Max Wu
  * @create: 2023-07-10 11:08
  **/
-public class ClassPathXmlApplicationContext implements BeanFactory {
+public class ClassPathXmlApplicationContext implements BeanFactory , ApplicationEventPublisher {
 	BeanFactory beanFactory;
 	//context负责整合容器的启动过程，读取外部配置，解析Bean定义，创建BeanFactory
 	public ClassPathXmlApplicationContext(String fileName){
@@ -19,7 +20,7 @@ public class ClassPathXmlApplicationContext implements BeanFactory {
 		//实例化一个BeanFactory
 		BeanFactory beanFactoryIn = new SimpleBeanFactory();
 		//创建一个读取xml的reader
-		XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactoryIn);
+		XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader((SimpleBeanFactory) beanFactoryIn);
 		//reader进行读取操作，同时将BeanFactory更新，加入bean配置
 		reader.loadBeanDefinitions(resource);
 		this.beanFactory = beanFactoryIn;
@@ -30,7 +31,39 @@ public class ClassPathXmlApplicationContext implements BeanFactory {
 	}
 
 	@Override
-	public void registerBeanDefinition(BeanDefinition beanDefinition) {
-		this.beanFactory.registerBeanDefinition(beanDefinition);
+	public Boolean containsBeanDefinition(String name) {
+		return null;
+	}
+
+	@Override
+	public boolean isSingleton(String name) {
+		return false;
+	}
+
+	@Override
+	public boolean isPrototype(String name) {
+		return false;
+	}
+
+	@Override
+	public Class<?> getType(String name) {
+		return null;
+	}
+
+	//@Override
+	/*public void registerBean(String name, Object obj) {
+		this.beanFactory.registerBean(name, obj);
+	}*/
+
+
+/*
+	@Override
+	public Boolean containsBean(String name) {
+		return this.beanFactory.containsBean(name);
+	}
+*/
+
+	@Override
+	public void publishEvent(ApplicationEventPublisher event) {
 	}
 }

@@ -7,5 +7,5 @@ package com.minis.test;
  * @create: 2023-07-10 15:47
  **/
 public interface AService {
-	void sayHello();
+	void setProperty1(String name, int level);
 }
