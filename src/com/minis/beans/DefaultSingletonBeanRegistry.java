@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @program: MicroSpring
- * @description:
+ * @description: 默认实现类，完成bean的单例注册
  * @author: Max Wu
  * @create: 2023-07-11 08:54
  **/
@@ -16,6 +16,12 @@ public class DefaultSingletonBeanRegistry implements SingletonBeanRegistry{
 	protected List<String> beanNames = new ArrayList<>();
 	//容器中存放bean实列map
 	protected Map<String, Object> singletons = new ConcurrentHashMap<>(256);
+
+	/**
+	 * 注册方法
+	 * @param beanName
+	 * @param singletonObject
+	 */
 	@Override
 	public void registerSingleton(String beanName, Object singletonObject) {
 		synchronized (this.singletons) {

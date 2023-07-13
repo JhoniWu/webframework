@@ -12,11 +12,12 @@ import com.minis.context.ClassPathXmlApplicationContext;
 public class test {
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("beans.xml");
+		AService aService;
 		try {
-			AService aService = (AService) ctx.getBean("aservice");
+			aService = (AService)ctx.getBean("aservice");
+			aService.sayHello();
 		} catch (BeansException e) {
-			throw new RuntimeException(e);
+			e.printStackTrace();
 		}
-
 	}
 }

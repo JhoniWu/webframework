@@ -30,8 +30,8 @@ public class PropertyValues {
 	public void removePropertyValue(String valueName){
 		this.propertyValueList.remove(getPropertyValue(valueName));
 	}
-	public PropertyValue[] getPropertyValues(){
-		return this.propertyValueList.toArray(new PropertyValue[this.propertyValueList.size()]);
+	public List<PropertyValue> getPropertyValues(){
+		return this.propertyValueList;
 	}
 	public PropertyValue getPropertyValue(String valueName){
 		for(PropertyValue pv : this.propertyValueList){

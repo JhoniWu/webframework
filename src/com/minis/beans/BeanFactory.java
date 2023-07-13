@@ -2,7 +2,7 @@ package com.minis.beans;
 
 /**
  * @program: MicroSpring
- * @description:
+ * @description: 读取bean配置文档，管理bean的加载，实例化，维护bean之间的依赖关系
  * @author: Max Wu
  * @create: 2023-07-10 16:12
  **/
