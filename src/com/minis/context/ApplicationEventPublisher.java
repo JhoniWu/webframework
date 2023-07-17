@@ -1,4 +1,4 @@
-package com.minis.core;
+package com.minis.context;
 
 /**
  * @program: MicroSpring
@@ -7,5 +7,5 @@ package com.minis.core;
  * @create: 2023-07-11 10:20
  **/
 public interface ApplicationEventPublisher {
-	void publishEvent(ApplicationEventPublisher event);
+	void publishEvent(ApplicationEvent event);
 }

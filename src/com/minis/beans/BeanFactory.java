@@ -7,10 +7,15 @@ package com.minis.beans;
  * @create: 2023-07-10 16:12
  **/
 public interface BeanFactory {
-	Object getBean(String beanName) throws BeansException;
-	//void registerBean(String name, Object obj);
-	Boolean containsBeanDefinition(String name);
+	Object getBean(String name) throws BeansException;
+
+	boolean containsBean(String name);
+
+	//void registerBean(String beanName, Object obj);
 	boolean isSingleton(String name);
+
 	boolean isPrototype(String name);
+
 	Class<?> getType(String name);
+
 }

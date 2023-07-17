@@ -13,6 +13,7 @@ public interface SingletonBeanRegistry {
 	Object getSingleton(String beanName);
 	//判断存在
 	boolean containsSingleton(String beanName);
+
 	//获取所有单例bean
-	String[] getSingletonName();
+	String[] getSingletonNames();
 }

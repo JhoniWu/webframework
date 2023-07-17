@@ -28,7 +28,7 @@ public class ClassPathXmlResource implements Resource {
 			this.rootElement = this.document.getRootElement();
 			this.elementIterator = this.rootElement.elementIterator();
 		} catch (DocumentException e) {
-			throw new RuntimeException(e);
+			e.printStackTrace();
 		}
 	}
 

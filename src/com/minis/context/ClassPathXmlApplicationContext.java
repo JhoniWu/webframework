@@ -1,7 +1,6 @@
 package com.minis.context;
 
 import com.minis.beans.*;
-import com.minis.core.ApplicationEventPublisher;
 import com.minis.core.ClassPathXmlResource;
 import com.minis.core.Resource;
 
@@ -30,47 +29,44 @@ public class ClassPathXmlApplicationContext implements BeanFactory , Application
 		reader.loadBeanDefinitions(resource);
 		this.beanFactory = beanFactoryIn;
 
-		if(isRefresh) {
+		if (isRefresh) {
 			this.beanFactory.refresh();
 		}
 	}
+
 	@Override
 	public Object getBean(String beanName) throws BeansException {
-		return  this.beanFactory.getBean(beanName);
+		return this.beanFactory.getBean(beanName);
 	}
 
 	@Override
-	public Boolean containsBeanDefinition(String name) {
-		return null;
+	public boolean containsBean(String name) {
+		return this.beanFactory.containsBean(name);
+	}
+
+	public void registerBean(String beanName, Object obj) {
+		this.beanFactory.registerBean(beanName, obj);
+	}
+
+	@Override
+	public void publishEvent(ApplicationEvent event) {
 	}
 
 	@Override
 	public boolean isSingleton(String name) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isPrototype(String name) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public Class<?> getType(String name) {
+		// TODO Auto-generated method stub
 		return null;
-	}
-
-	//@Override
-	/*public void registerBean(String name, Object obj) {
-		this.beanFactory.registerBean(name, obj);
-	}*/
-/*
-	@Override
-	public Boolean containsBean(String name) {
-		return this.beanFactory.containsBean(name);
-	}
-*/
-
-	@Override
-	public void publishEvent(ApplicationEventPublisher event) {
 	}
 }

@@ -1,7 +1,4 @@
 package com.minis.beans;
-
-import com.sun.jdi.connect.Connector;
-
 /**
  * @program: MicroSpring
  * @description:
@@ -11,15 +8,16 @@ import com.sun.jdi.connect.Connector;
 public class BeanDefinition {
 	String SCOPE_SINGLETON = "singleton";
 	String SCOPE_PROTOTYPE = "prototype";
-	private boolean lazyInit = false;
+	private boolean lazyInit = true;
 	private String[] dependsOn;
-	private ArgumentValues constructArgumentValues;
+	private ArgumentValues constructorArgumentValues;
 	private PropertyValues propertyValues;
 	private String initMethodName;
 	private volatile Object beanClass;
 	private String id;
 	private String className;
 	private String scope = SCOPE_SINGLETON;
+
 	public BeanDefinition (String id, String className){
 		this.id = id;
 		this.className = className;
@@ -61,16 +59,16 @@ public class BeanDefinition {
 		return dependsOn;
 	}
 
-	public void setDependsOn(String[] dependsOn) {
+	public void setDependsOn(String... dependsOn) {
 		this.dependsOn = dependsOn;
 	}
 
-	public ArgumentValues getConstructArgumentValues() {
-		return constructArgumentValues;
+	public ArgumentValues getConstructorArgumentValues() {
+		return constructorArgumentValues;
 	}
 
-	public void setConstructArgumentValues(ArgumentValues constructArgumentValues) {
-		this.constructArgumentValues = constructArgumentValues;
+	public void setConstructorArgumentValues(ArgumentValues constructorArgumentValues) {
+		this.constructorArgumentValues = constructorArgumentValues;
 	}
 
 	public PropertyValues getPropertyValues() {

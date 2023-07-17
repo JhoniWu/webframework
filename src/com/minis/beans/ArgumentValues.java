@@ -12,16 +12,15 @@ import java.util.*;
  **/
 public class ArgumentValues {
 	//private final Map<Integer, ArgumentValue> indexedArgumentValues = new HashMap<>();
-	private final List<ArgumentValue> argumentValues = new LinkedList<>();
+	private final List<ArgumentValue> argumentValues = new ArrayList<>();
 	public ArgumentValues(){
-
 	}
 
 	public void addArgumentValue(ArgumentValue argumentValue){
 		this.argumentValues.add(argumentValue);
 	}
 
-	public ArgumentValue getIndexedArgument(int index){
+	public ArgumentValue getIndexedArgumentValue(int index) {
 		ArgumentValue argumentValue = this.argumentValues.get(index);
 		return argumentValue;
 	}
@@ -33,9 +32,7 @@ public class ArgumentValues {
 	public boolean isEmpty(){
 		return (this.argumentValues.isEmpty());
 	}
-
-
-
+	
 	/*public void addArgumentValue(Integer key, ArgumentValue newValue){
 		this.indexedArgumentValues.put(key, newValue);
 	}
@@ -76,6 +73,5 @@ public class ArgumentValues {
 		}
 		return null;
 	}*/
-
 }
 
